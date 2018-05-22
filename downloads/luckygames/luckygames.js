@@ -264,7 +264,7 @@ $.getScript('//dicegametool.com/public/js/canvasjs.min.js').done(function(script
 			includeZero: false,
 		},
 		title: {
-			text: 'Bot LuckyGames by Tr瓢啤ng Tri锚蹋u Lu芒n - Base on code by Mai Hoa虁ng Qu么虂c Ba虊o - Improvisation themes by H瓢虄u Ha虁 (EtherFact) - Auto-stop and 30 minutes Auto-start module by LQL',
+			text: 'Bot LuckyGames by Trương Triệu Luân - Base on code by Mai Hoàng Quốc Bảo - Improvisation themes by Hữu Hà (EtherFact) - Auto-stop and 30 minutes Auto-start module by LQL',
 			fontSize: 16
 		},
 		data: [{

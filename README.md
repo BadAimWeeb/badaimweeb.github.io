@@ -1,2 +1,2 @@
-# lequanglam.github.io
-Nhìn con cặc!
+# LQL's gitHUB Page
+Nhìn cái cc chứ ngồi đó mà nhìn!

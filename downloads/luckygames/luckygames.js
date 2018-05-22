@@ -445,7 +445,7 @@ function runBot() {
 					$('#wagered').html(wagered.toFixed(8));
 					$('#balancelose').html(balancelose.toFixed(8));
 					updateChart(bet, profit, color);
-					if (!firstrun && a.balance > (firstrunbalance + (firstrunbalance / 100 * 30))) {
+					if (!firstrun && parseInt(a.balance) > (parseInt(firstrunbalance) + (parseInt(firstrunbalance) / 100 * 30))) {
 						stopBot();
 					} else {
 						runBot();

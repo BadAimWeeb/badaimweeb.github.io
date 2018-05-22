@@ -374,6 +374,7 @@ function runBot() {
 				if (a.result === true) {
 					if (firstrun) {
 						firstrunbalance = a.balance;
+						firstrun = false;
 					}
 					$('#serverSeedHash').html(a.serverSeedHash);
 					$('#prevServerSeed').html(a.prevServerSeed);
@@ -445,7 +446,7 @@ function runBot() {
 					$('#wagered').html(wagered.toFixed(8));
 					$('#balancelose').html(balancelose.toFixed(8));
 					updateChart(bet, profit, color);
-					if (!firstrun && parseInt(a.balance) > (parseInt(firstrunbalance) + (parseInt(firstrunbalance) / 100 * 30))) {
+					if (!firstrun && parseFloat(a.balance) > (parseFloat(firstrunbalance) + (parseFloat(firstrunbalance) / 100 * 30))) {
 						stopBot();
 					} else {
 						runBot();

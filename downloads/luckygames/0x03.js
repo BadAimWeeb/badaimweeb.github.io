@@ -296,8 +296,8 @@ function doBet() {
 								betAmount = basebetAmount;
 							} else {
 								round++;
-								betAmount = betAmount * 2 +(basebetAmount * (loseStreak / 1.8);							
-              }
+								betAmount = betAmount * 2 + basebetAmount * (loseStreak / 1.8);							
+                                                        }
 						}
 					}
 					doBet();

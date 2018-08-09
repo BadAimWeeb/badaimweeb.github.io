@@ -110,7 +110,7 @@ $('#play').on('click', function () {
 	overBalance = parseFloat($('#overBalance').val());
 	underBalance = parseFloat($('#underBalance').val());
 	betAmount = basebetAmount;
-	prediction = 1;
+	prediction = 49;
 	direction = 'under';
 	$('#basebetAmount').val(basebetAmount.toFixed(8));
 	$('#overBalance').val(overBalance.toFixed(8));

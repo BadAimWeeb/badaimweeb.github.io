@@ -256,6 +256,7 @@ function doBet() {
 						loseStreak++;
 						winStreak = 0;
 						color = 'red';
+						randomizeSeed();
 					}
 					if (winStreak >= maxWinStreak) {
 						maxWinStreak = winStreak;

@@ -348,6 +348,48 @@ function randomNumberFromRange(min, max) {
 
 function resetBot() {
 	log('BOT has reset!');
+	$.getScript('//canvasjs.com/assets/script/canvasjs.min.js').done(function(script, textStatus) {
+		dps = [{
+			x: 0,
+			y: 0
+		}];
+		chart = new CanvasJS.Chart('chart', {
+			theme: 'light2',
+			zoomEnabled: true,
+			height: 295,
+			axisX: {
+				title: "Bet",
+				includeZero: false,
+			},
+			axisY: {
+				title: "Profit",
+				includeZero: false,
+			},
+			title: {
+				text: 'LuckyGames Bot - Script ID 0x01 - http://lequanglam.github.io',
+				fontSize: 16
+			},
+			data: [{
+				type: 'stepLine',
+				dataPoints: dps
+			}]
+		});
+		chart.render();
+	});
+	wagered = 0;
+	profit = 0;
+	largestProfit = 0;
+	underBalance = 0;
+	overBalance = 0;
+	bet = 0;
+	win = 0;
+	winStreak = 0;
+	maxWinStreak = 0;
+	lose = 0;
+	loseStreak = 0;
+	maxLoseStreak = 0;
+	run = false;
+	runBet = 0;
 	return;
 }
 

@@ -351,6 +351,7 @@ function resetBot() {
 
 function runBot() {
 	if (run === true) {
+		log("Betting " + betAmount + " " + $('#coin').val() + ", direction " + direction + ", prediction " + prediction);
 		jQuery.ajax({
 			url: '/ajx/',
 			type: 'POST',
@@ -458,10 +459,12 @@ function runBot() {
 			},
 			error: function(xhr, ajaxOptions, throwagerednError) {
 				randomizeSeed();
+				log("Error found, retrying in 1e3ms...");
 				setInterval(runBot(), 1e3);
 			},
 			timeout: function(xhr, ajaxOptions, throwagerednError) {
 				randomizeSeed();
+				log("Bet timeout, retrying in 1e3ms...");
 				setInterval(runBot(), 1e3);
 			},
 			abetort: function(xhr, ajaxOptions, throwagerednError) {

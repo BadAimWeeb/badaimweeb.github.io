@@ -264,7 +264,7 @@ $.getScript('//canvasjs.com/assets/script/canvasjs.min.js').done(function(script
 			includeZero: false,
 		},
 		title: {
-			text: 'LuckyGames Bot - Script ID 0x01 \nlequanglam.github.io',
+			text: 'LuckyGames Bot - Script ID 0x01 - http://lequanglam.github.io',
 			fontSize: 16
 		},
 		data: [{

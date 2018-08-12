@@ -1,0 +1,45 @@
+<head>
+  <title>DiceBot-Script - LQL's gitHUB page</title>
+  <style>
+    a:link, a:visited { 
+      color: #00FF00;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+    a:link:active, a:visited:active { 
+      color: #00FF00;
+    }
+  </style>
+</head>
+<body style="background-color: #000000">
+  <tt style="color: #00FF00">
+    <pre>
+    __    ____    __   _                _ __  __  ____  ______     ____  ___   ____________
+   / /   / __ \  / /  ( )_____   ____ _(_) /_/ / / / / / / __ )   / __ \/   | / ____/ ____/
+  / /   / / / / / /   |// ___/  / __ `/ / __/ /_/ / / / / __  |  / /_/ / /| |/ / __/ __/   
+ / /___/ /_/ / / /___  (__  )  / /_/ / / /_/ __  / /_/ / /_/ /  / ____/ ___ / /_/ / /___   
+/_____/\___\_\/_____/ /____/   \__, /_/\__/_/ /_/\____/_____/  /_/   /_/  |_\____/_____/   
+                              /____/                                                       
+    </pre>
+    <br>
+    <a href="/">Homepage</a> -> <a href="/downloads/">Downloads</a> -> <a href="/downloads/dice/">DiceBot-Script</a> -> LuckyGames<br>
+    <br>
+    <br>
+    <a href="#" id="0">Script 0x00</a><br>
+    <a href="#" id="1">Script 0x01 (Bug!)</a><br>
+    <a href="#" id="2">Script 0x02</a><br>
+    <a href="#" id="3">Script 0x03 (Experiment)</a><br>
+    <a href="#" id="4">Script 0x04</a><br>
+    <br>
+    Paste to console: <u><span id="toConsole"></span></u><br>
+    Set basebet: <u><span id="setBasebet"></span></u><br>
+    Note: <u><span id="note"></span></u><br>
+    <script>
+      document.getElementById("0").onclick = function() {
+        document.getElementById("toConsole").innerHTML = "$('head').append('<script src="https://lequanglam.github.io/downloads/dice/0x00.js"></script>');";
+        document.getElementById("setBasebet").innerHTML = "balance / 35000000";
+        document.getElementById("note").innerHTML = "You can't use this script when other script are running in same account!";
+      }
+    </script>
+  </tt>
+</body>

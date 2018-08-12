@@ -28,17 +28,38 @@
     <a href="#" id="0">Script 0x00</a><br>
     <a href="#" id="1">Script 0x01 (Bug!)</a><br>
     <a href="#" id="2">Script 0x02</a><br>
+    <a href="#" id="2-1">Script 0x02/1</a><br>
     <a href="#" id="3">Script 0x03 (Experiment)</a><br>
     <a href="#" id="4">Script 0x04</a><br>
     <br>
     Paste to console: <u><span id="toConsole"></span></u><br>
     Set basebet: <u><span id="setBasebet"></span></u><br>
     Note: <u><span id="note"></span></u><br>
+    <u><span id="note2"></span></u><br>
     <script>
       document.getElementById("0").onclick = function() {
         document.getElementById("toConsole").innerHTML = "$('head').append('&lt;script src=\"https://lequanglam.github.io/downloads/dice/0x00.js\"&gt;&lt;/script>&gt;);";
         document.getElementById("setBasebet").innerHTML = "balance / 35000000";
         document.getElementById("note").innerHTML = "You can't use this script when other script are running in same account!";
+        document.getElementById("note2").innerHTML = "";
+      }
+      document.getElementById("1").onclick = function() {
+        document.getElementById("toConsole").innerHTML = "$('head').append('&lt;script src=\"https://lequanglam.github.io/downloads/dice/0x01.js\"&gt;&lt;/script>&gt;);";
+        document.getElementById("setBasebet").innerHTML = "balance / 35000000";
+        document.getElementById("note").innerHTML = "You can't use this script when other script are running in same account!";
+        document.getElementById("note2").innerHTML = "The script contains a bug. Use it at your own risks.";
+      }
+      document.getElementById("2").onclick = function() {
+        document.getElementById("toConsole").innerHTML = "$('head').append('&lt;script src=\"https://lequanglam.github.io/downloads/dice/0x02.js\"&gt;&lt;/script>&gt;);";
+        document.getElementById("setBasebet").innerHTML = "balance / 20000000";
+        document.getElementById("note").innerHTML = "";
+        document.getElementById("note2").innerHTML = "";
+      }
+      document.getElementById("2-1").onclick = function() {
+        document.getElementById("toConsole").innerHTML = "$('head').append('&lt;script src=\"https://lequanglam.github.io/downloads/dice/0x02-stoponwin.js\"&gt;&lt;/script>&gt;);";
+        document.getElementById("setBasebet").innerHTML = "balance / 20000000";
+        document.getElementById("note").innerHTML = "";
+        document.getElementById("note2").innerHTML = "";
       }
     </script>
   </tt>

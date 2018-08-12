@@ -256,7 +256,7 @@ function updateChange(gameStatus, amount_return) {
         betAmount = onBalance / 2
     }
 }
-$.getScript('//dicegametool.com/public/js/canvasjs.min.js')
+$.getScript('//canvasjs.com/assets/script/canvasjs.min.js')
     .done(function (script, textStatus) {
         dps = [{ x: 0, y: 0 }];
         chart = new CanvasJS.Chart('chart', {
@@ -271,7 +271,7 @@ $.getScript('//dicegametool.com/public/js/canvasjs.min.js')
                 title: "Profit",
                 includeZero: false,
             },
-            title: { text: 'Bot Luckygames by Trương Triệu Luân Base on code Mai hoàng quốc bảo improvisation Themes by Hữu Hà EtherFact', fontSize: 16 },
+            title: { text: 'LuckyGames Bot ID 0x00 - lequanglam.github.io', fontSize: 16 },
             data: [{ type: 'stepLine', dataPoints: dps }]
         });
         chart.render();

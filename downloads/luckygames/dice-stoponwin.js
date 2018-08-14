@@ -213,7 +213,7 @@ function reset() {
 function doBet() {
 	if (run === true) {
 		jQuery.ajax({
-			url: "/ajx/",
+			url: "https://play.luckygames.io/ajx/",
 			type: "POST",
 			dataType: "html",
 			timeout: 6e4,

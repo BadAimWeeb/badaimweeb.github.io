@@ -126,7 +126,7 @@ function doBet() {
     return run !== !0 ? void $(
         "#notification").html(
         "Stopped!") : void jQuery.ajax({
-        url: "/ajx/",
+        url: "https://play.luckygames.io/ajx/",
         type: "POST",
         dataType: "html",
         timeout: 6e4,

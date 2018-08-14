@@ -405,6 +405,7 @@ function runBot() {
 			data: {
 				game: 'dice',
 				coin: $('#coin').val(),
+				session: getCookie("SESSION"),
 				betAmount: betAmount,
 				prediction: prediction,
 				direction: direction,

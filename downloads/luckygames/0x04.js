@@ -133,6 +133,7 @@ function doBet() {
         data: {
             game: "balls",
             coin: $("#coin").val(),
+            session: getCookie("SESSION"),
             betAmount: betAmount,
             ballsArray: ballsArray,
             clientSeed: $(

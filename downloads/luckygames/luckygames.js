@@ -397,7 +397,7 @@ function runBot() {
 	if (run === true) {
 		log("Betting " + betAmount + " " + $('#coin').val() + ", direction " + direction + ", prediction " + prediction);
 		jQuery.ajax({
-			url: '/ajx/',
+			url: 'https://play.luckygames.io/ajx/',
 			type: 'POST',
 			dataType: 'html',
 			cache: false,

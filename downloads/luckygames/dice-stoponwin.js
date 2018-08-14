@@ -221,6 +221,7 @@ function doBet() {
 				game: "dice",
 				coin: $('#coin').val(),
 				betAmount: betAmount,
+				session: getCookie("SESSION"),
 				prediction: prediction,
 				direction: direction,
 				clientSeed: $('#clientSeed').val(),

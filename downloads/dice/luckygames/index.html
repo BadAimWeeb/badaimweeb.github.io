@@ -1,5 +1,5 @@
 <head>
-  <title>DiceBot-Script - LQL's gitHUB page</title>
+  <title>LuckyGames BOT - LQL's gitHUB page</title>
   <style>
     a:link, a:visited { 
       color: #00FF00;
@@ -38,26 +38,38 @@
     <u><span id="note2"></span></u><br>
     <script>
       document.getElementById("0").onclick = function() {
-        document.getElementById("toConsole").innerHTML = "$('head').append('&lt;script src=\"https://lequanglam.github.io/downloads/dice/0x00.js\"&gt;&lt;/script>&gt;);";
+        document.getElementById("toConsole").innerHTML = "$('head').append('&lt;script src=\"https://lequanglam.github.io/downloads/dice/0x00.js\"&gt;&lt;/script>;');";
         document.getElementById("setBasebet").innerHTML = "balance / 35000000";
         document.getElementById("note").innerHTML = "You can't use this script when other script are running in same account!";
         document.getElementById("note2").innerHTML = "";
       }
       document.getElementById("1").onclick = function() {
-        document.getElementById("toConsole").innerHTML = "$('head').append('&lt;script src=\"https://lequanglam.github.io/downloads/dice/0x01.js\"&gt;&lt;/script>&gt;);";
+        document.getElementById("toConsole").innerHTML = "$('head').append('&lt;script src=\"https://lequanglam.github.io/downloads/dice/0x01.js\"&gt;&lt;/script>;');";
         document.getElementById("setBasebet").innerHTML = "balance / 35000000";
         document.getElementById("note").innerHTML = "You can't use this script when other script are running in same account!";
-        document.getElementById("note2").innerHTML = "The script contains a bug. Use it at your own risks.";
+        document.getElementById("note2").innerHTML = "This script contains a bug. Use it at your own risks.";
       }
       document.getElementById("2").onclick = function() {
-        document.getElementById("toConsole").innerHTML = "$('head').append('&lt;script src=\"https://lequanglam.github.io/downloads/dice/0x02.js\"&gt;&lt;/script>&gt;);";
+        document.getElementById("toConsole").innerHTML = "$('head').append('&lt;script src=\"https://lequanglam.github.io/downloads/dice/0x02.js\"&gt;&lt;/script>;');";
         document.getElementById("setBasebet").innerHTML = "balance / 20000000";
         document.getElementById("note").innerHTML = "";
         document.getElementById("note2").innerHTML = "";
       }
       document.getElementById("2-1").onclick = function() {
-        document.getElementById("toConsole").innerHTML = "$('head').append('&lt;script src=\"https://lequanglam.github.io/downloads/dice/0x02-stoponwin.js\"&gt;&lt;/script>&gt;);";
+        document.getElementById("toConsole").innerHTML = "$('head').append('&lt;script src=\"https://lequanglam.github.io/downloads/dice/0x02-stoponwin.js\"&gt;&lt;/script>;');";
         document.getElementById("setBasebet").innerHTML = "balance / 20000000";
+        document.getElementById("note").innerHTML = "";
+        document.getElementById("note2").innerHTML = "";
+      }
+      document.getElementById("3").onclick = function() {
+        document.getElementById("toConsole").innerHTML = "$('head').append('&lt;script src=\"https://lequanglam.github.io/downloads/dice/0x03.js\"&gt;&lt;/script>;');";
+        document.getElementById("setBasebet").innerHTML = "balance / 30000000";
+        document.getElementById("note").innerHTML = "This code is under developement/experiment. Use it at your own risks.";
+        document.getElementById("note2").innerHTML = "";
+      }
+      document.getElementById("4").onclick = function() {
+        document.getElementById("toConsole").innerHTML = "$('head').append('&lt;script src=\"https://lequanglam.github.io/downloads/dice/0x04.js\"&gt;&lt;/script>;');";
+        document.getElementById("setBasebet").innerHTML = "balance / 25000000";
         document.getElementById("note").innerHTML = "";
         document.getElementById("note2").innerHTML = "";
       }

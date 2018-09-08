@@ -283,9 +283,8 @@ function doBet() {
 						} else if (type == 2) {
 							streaktype2 = true;
 							betAmount *= 5.16666666;
-						} else if (type == 3 && xyz == 8) {
-							xyz = 0;
-							betAmount *= 2;
+						} else if (type == 3) {
+							betAmount *= 1.091;
 						}
 						lose++;
 						loseStreak++;

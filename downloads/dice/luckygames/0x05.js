@@ -256,16 +256,13 @@ function doBet() {
 						if (type == 0 && streaktype0) {
 							type = 1;
 							betAmount = basebetAmount / 2;
-						}
-						if (type == 1) {
+						} else if (type == 1) {
 							type = 2;
 							betAmount = basebetAmount * 2;
-						}
-						if (type == 2 && streaktype2) {
+						} else if (type == 2 && streaktype2) {
 							type = 3;
 							betAmount = basebetAmount;
-						}
-						if (type == 3) {
+						} else if (type == 3) {
 							xyz = 0;
 							type = 0;
 							betAmount = basebetAmount;
@@ -281,15 +278,12 @@ function doBet() {
 						if (type == 0) {
 							streaktype0 = true;
 							betAmount = betAmount * 2 + basebetAmount * (loseStreak / 1.8);
-						}
-						if (type == 1) {
+						} else if (type == 1) {
 							betAmount *= 1.035;
-						}
-						if (type == 2) {
+						} else if (type == 2) {
 							streaktype2 = true;
 							betAmount *= 5.16666666;
-						}
-						if (type == 3 && xyz == 8) {
+						} else if (type == 3 && xyz == 8) {
 							xyz = 0;
 							betAmount *= 2;
 						}
@@ -334,8 +328,7 @@ function doBet() {
 									prediction = 50;
 									direction = 'over';
 								}
-							}
-							if (type == 1) {
+							} else if (type == 1) {
 								if (bet % 2 === 0) {
 									prediction = 1;
 									direction = 'under';
@@ -343,8 +336,7 @@ function doBet() {
 									prediction = 98;
 									direction = 'over';
 								}
-							}
-							if (type == 2) {
+							} else if (type == 2) {
 								if (bet % 2 === 0) {
 									prediction = 80;
 									direction = 'under';
@@ -352,8 +344,7 @@ function doBet() {
 									prediction = 19;
 									direction = 'over';
 								}
-							}
-							if (type == 3) {
+							} else if (type == 3) {
 								if (bet % 2 === 0) {
 									prediction = 5;
 									direction = 'under';

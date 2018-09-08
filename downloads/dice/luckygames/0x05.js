@@ -327,7 +327,7 @@ function doBet() {
 							$('#notification').html('Under balance!');
 							return;
 						} else {
-							if (type == 0) {
+							if (type < 10) {
 								if (bet % 2 === 0) {
 									prediction = 49;
 									direction = 'under';
@@ -335,7 +335,7 @@ function doBet() {
 									prediction = 50;
 									direction = 'over';
 								}
-							} else if (type == 1) {
+							} else if (type == 10) {
 								if (bet % 2 === 0) {
 									prediction = 1;
 									direction = 'under';
@@ -343,7 +343,7 @@ function doBet() {
 									prediction = 98;
 									direction = 'over';
 								}
-							} else if (type == 2) {
+							} else if (type < 16) {
 								if (bet % 2 === 0) {
 									prediction = 80;
 									direction = 'under';
@@ -351,7 +351,7 @@ function doBet() {
 									prediction = 19;
 									direction = 'over';
 								}
-							} else if (type == 3) {
+							} else if (type == 16) {
 								if (bet % 2 === 0) {
 									prediction = 5;
 									direction = 'under';

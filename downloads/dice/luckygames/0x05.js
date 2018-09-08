@@ -256,26 +256,25 @@ function doBet() {
 						if (type < 10 && streaktype0) {
 							type += 1;
 							if (type == 10) {
-								betAmount = basebetAmount / 2;
+								betAmount = basebetAmount / 8;
 							} else {
-								betAmount = basebetAmount;	
+								betAmount = basebetAmount * 5;	
 							}
 							streaktype0 = false;
 						} else if (type == 10) {
 							type += 1;
-							betAmount = basebetAmount * 2;
+							betAmount = basebetAmount * 10;
 						} else if (type < 16 && streaktype2) {
 							type += 1;
 							if (type == 16) {
 								betAmount = basebetAmount;
 							} else {
-								betAmount = basebetAmount * 2;	
+								betAmount = basebetAmount * 10;	
 							}
-							betAmount = basebetAmount;
 							streaktype2 = false;
 						} else if (type == 16) {
 							type = 0;
-							betAmount = basebetAmount;
+							betAmount = basebetAmount * 8;
 						}
 						win++;
 						winStreak++;

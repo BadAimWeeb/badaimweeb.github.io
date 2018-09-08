@@ -255,7 +255,6 @@ function doBet() {
 					if (data.gameResult === 'win') {
 						if (type == 0 && streaktype0) {
 							type = 1;
-							streaktype0 = false;
 							betAmount = basebetAmount / 2;
 						}
 						if (type == 1) {
@@ -264,7 +263,6 @@ function doBet() {
 						}
 						if (type == 2 && streaktype2) {
 							type = 3;
-							streaktype2 = false;
 							betAmount = basebetAmount;
 						}
 						if (type == 3) {
@@ -276,7 +274,8 @@ function doBet() {
 						winStreak++;
 						loseStreak = 0;
 						color = 'green';
-						
+						streaktype0 = false;
+						streaktype2 = false;
 					} else {
 						xyz++;
 						if (type == 0) {

@@ -256,7 +256,7 @@ function doBet() {
 						if (type < 10 && streaktype0) {
 							type += 1;
 							if (type == 10) {
-								betAmount = basebetAmount / 8;
+								betAmount = basebetAmount / 20;
 							} else {
 								betAmount = basebetAmount * 5;	
 							}

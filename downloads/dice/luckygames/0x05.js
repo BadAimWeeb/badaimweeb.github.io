@@ -253,17 +253,27 @@ function doBet() {
 						largestProfit = profit;
 					}
 					if (data.gameResult === 'win') {
-						if (type == 0 && streaktype0) {
-							type = 1;
-							betAmount = basebetAmount / 2;
-						} else if (type == 1) {
-							type = 2;
+						if (type < 10 && streaktype0) {
+							type += 1;
+							if (type == 10) {
+								betAmount = basebetAmount / 2;
+							} else {
+								betAmount = basebetAmount;	
+							}
+							streaktype0 = false;
+						} else if (type == 10) {
+							type += 1;
 							betAmount = basebetAmount * 2;
-						} else if (type == 2 && streaktype2) {
-							type = 3;
+						} else if (type < 16 && streaktype2) {
+							type += 1;
+							if (type == 16) {
+								betAmount = basebetAmount;
+							} else {
+								betAmount = basebetAmount * 2;	
+							}
 							betAmount = basebetAmount;
-						} else if (type == 3) {
-							xyz = 0;
+							streaktype2 = false;
+						} else if (type == 16) {
 							type = 0;
 							betAmount = basebetAmount;
 						}
@@ -271,19 +281,17 @@ function doBet() {
 						winStreak++;
 						loseStreak = 0;
 						color = 'green';
-						streaktype0 = false;
-						streaktype2 = false;
 					} else {
 						xyz++;
-						if (type == 0) {
+						if (type < 10) {
 							streaktype0 = true;
 							betAmount = betAmount * 2 + basebetAmount * (loseStreak / 1.8);
-						} else if (type == 1) {
+						} else if (type == 10) {
 							betAmount *= 1.035;
-						} else if (type == 2) {
+						} else if (type < 16) {
 							streaktype2 = true;
 							betAmount *= 5.16666666;
-						} else if (type == 3) {
+						} else if (type == 16) {
 							betAmount *= 1.091;
 						}
 						lose++;

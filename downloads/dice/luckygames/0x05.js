@@ -256,7 +256,7 @@ function doBet() {
 						if (type < 10 && streaktype0) {
 							type += 1;
 							if (type == 10) {
-								betAmount = basebetAmount / 100;
+								betAmount = basebetAmount / 75;
 							} else {
 								betAmount = basebetAmount * 5;	
 							}
@@ -267,7 +267,7 @@ function doBet() {
 						} else if (type < 16 && streaktype2) {
 							type += 1;
 							if (type == 16) {
-								betAmount = basebetAmount;
+								betAmount = basebetAmount / 30;
 							} else {
 								betAmount = basebetAmount * 10;	
 							}

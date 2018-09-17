@@ -110,7 +110,10 @@ $('#play').on('click', function () {
 	overBalance = parseFloat($('#overBalance').val());
 	underBalance = parseFloat($('#underBalance').val());
 	betAmount = basebetAmount;
-	prediction = 49;
+	if (betAmount < 0.00000001) {
+		betAmount = 0.00000001;
+	}
+	prediction = 98;
 	direction = 'under';
 	$('#basebetAmount').val(basebetAmount.toFixed(8));
 	$('#overBalance').val(overBalance.toFixed(8));
@@ -252,7 +255,7 @@ function doBet() {
 						winStreak++;
 						loseStreak = 0;
 						color = 'green';
-						betAmount = betAmount - (betAmount * 0.05);
+						betAmount = basebetAmount;
 						if (betAmount < 0.00000001) {
 							betAmount = 0.00000001;
 						}
@@ -264,7 +267,16 @@ function doBet() {
 						randomizeSeed();
 						betAmount *= 1.33;
 					}
-					prediction = Math.floor((Math.random() * 45) + 5);
+					if (Math.random() > 0.5) {
+						direction = "over";
+					} else {
+						direction = "under";
+					}
+					if (direction == "under") {
+						prediction = Math.floor((Math.random() * 45) + 5);
+					} else {
+						prediction = Math.floor((Math.random() * 45) + 54);
+					}
 					if (winStreak >= maxWinStreak) {
 						maxWinStreak = winStreak;
 					}
@@ -275,7 +287,7 @@ function doBet() {
 						maxbetAmount = betAmount;
 					}
 					$('#serverSeedHash').html(data.serverSeedHash);
-					$('#notification').html('Bot on running with prediction = ' + prediction);
+					$('#notification').html('Betting ' + betAmount.toFixed(8) + ' ' + $("#coin").val() + ', ' + direction + ' ' + prediction);
 					$('#static').html('<span style="float: left;">time = ' + playDay + ':' + playHour + ':' + playMinute + ':' + playSecond + '</span> <span style="float: right;">speed = ' + speed.toFixed(2) + '</span><br> <span style="float: left;">balance = ' + balance.toFixed(8) + '</span> <span style="float: right;">profit = ' + profit.toFixed(8) + '</span><br> <span style="float: left;">wagered = ' + wagered.toFixed(8) + '</span> <span style="float: right;">maxbetAmount = ' + maxbetAmount.toFixed(8) + '</span><br> <span style="float: left;">winStreak = ' + winStreak + '</span> <span style="float: right;">loseStreak = ' + loseStreak + '</span><br> <span style="float: left;">maxWinStreak = ' + maxWinStreak + '</span> <span style="float: right;">maxLoseStreak = ' + maxLoseStreak + '</span>');
 					updateChart(bet, profit, color);
 					if (betAmount >= balance) {

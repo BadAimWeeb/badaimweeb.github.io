@@ -212,6 +212,7 @@ function reset() {
 }
 function doBet() {
 	if (run === true) {
+            try {
 		jQuery.ajax({
 			url: "https://play.luckygames.io/ajx/",
 			type: "POST",
@@ -322,6 +323,10 @@ function doBet() {
 				setInterval(doBet(), 1e3);
 			}
 		});
+            } catch (exc) {
+             $('#notification').html('Error: ' + exc + '. Retrying in 15 sec...');
+                setTimeout(doBet(), 15000);
+            }
 	} else {
 		$('#notification').html('Bot has stopped');
 		return;

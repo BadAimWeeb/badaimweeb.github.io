@@ -31,6 +31,8 @@
     <a href="#" id="2-1">Script 0x02/1</a><br>
     <a href="#" id="3">Script 0x03 (Experiment)</a><br>
     <a href="#" id="4">Script 0x04</a><br>
+    <a href="#" id="5">Script 0x05 (Experiment)</a><br>
+    <a href="#" id="5">Script 0x06 - RUSH F (Experiment)</a><br>
     <br>
     Paste to console: <u><span id="toConsole"></span></u><br>
     Set basebet: <u><span id="setBasebet"></span></u><br>
@@ -44,33 +46,45 @@
         document.getElementById("note2").innerHTML = "";
       }
       document.getElementById("1").onclick = function() {
-        document.getElementById("toConsole").innerHTML = "$('head').append('&lt;script src=\"https://lequanglam.github.io/downloads/dice/luckygames/0x01.js\"&gt;&lt;/script>;');";
+        document.getElementById("toConsole").innerHTML = "$('head').append('&lt;script src=\"https://lequanglam.github.io/downloads/dice/luckygames/0x01.js\"&gt;&lt;/script>;')";
         document.getElementById("setBasebet").innerHTML = "balance / 35000000";
         document.getElementById("note").innerHTML = "You can't use this script when other script are running in same account!";
         document.getElementById("note2").innerHTML = "This script contains a bug. Use it at your own risks.";
       }
       document.getElementById("2").onclick = function() {
-        document.getElementById("toConsole").innerHTML = "$('head').append('&lt;script src=\"https://lequanglam.github.io/downloads/dice/luckygames/0x02.js\"&gt;&lt;/script>;');";
+        document.getElementById("toConsole").innerHTML = "$('head').append('&lt;script src=\"https://lequanglam.github.io/downloads/dice/luckygames/0x02.js\"&gt;&lt;/script>;')";
         document.getElementById("setBasebet").innerHTML = "balance / 20000000";
         document.getElementById("note").innerHTML = "";
         document.getElementById("note2").innerHTML = "";
       }
       document.getElementById("2-1").onclick = function() {
-        document.getElementById("toConsole").innerHTML = "$('head').append('&lt;script src=\"https://lequanglam.github.io/downloads/dice/luckygames/0x02-stoponwin.js\"&gt;&lt;/script>;');";
+        document.getElementById("toConsole").innerHTML = "$('head').append('&lt;script src=\"https://lequanglam.github.io/downloads/dice/luckygames/0x02-stoponwin.js\"&gt;&lt;/script>;')";
         document.getElementById("setBasebet").innerHTML = "balance / 20000000";
         document.getElementById("note").innerHTML = "This code is for you to continue streak after lose. Extension from 0x02.";
         document.getElementById("note2").innerHTML = "";
       }
       document.getElementById("3").onclick = function() {
-        document.getElementById("toConsole").innerHTML = "$('head').append('&lt;script src=\"https://lequanglam.github.io/downloads/dice/luckygames/0x03.js\"&gt;&lt;/script>;');";
+        document.getElementById("toConsole").innerHTML = "$('head').append('&lt;script src=\"https://lequanglam.github.io/downloads/dice/luckygames/0x03.js\"&gt;&lt;/script>;')";
         document.getElementById("setBasebet").innerHTML = "balance / 30000000";
         document.getElementById("note").innerHTML = "This code is under developement/experiment. Use it at your own risks.";
         document.getElementById("note2").innerHTML = "";
       }
       document.getElementById("4").onclick = function() {
-        document.getElementById("toConsole").innerHTML = "$('head').append('&lt;script src=\"https://lequanglam.github.io/downloads/dice/luckygames/0x04.js\"&gt;&lt;/script>;');";
+        document.getElementById("toConsole").innerHTML = "$('head').append('&lt;script src=\"https://lequanglam.github.io/downloads/dice/luckygames/0x04.js\"&gt;&lt;/script>;')";
         document.getElementById("setBasebet").innerHTML = "balance / 25000000";
         document.getElementById("note").innerHTML = "";
+        document.getElementById("note2").innerHTML = "";
+      }
+      document.getElementById("5").onclick = function() {
+        document.getElementById("toConsole").innerHTML = "$('head').append('&lt;script src=\"https://lequanglam.github.io/downloads/dice/luckygames/0x05.js\"&gt;&lt;/script>;')";
+        document.getElementById("setBasebet").innerHTML = "N/A";
+        document.getElementById("note").innerHTML = "This code is under developement/experiment. Use it at your own risks.";
+        document.getElementById("note2").innerHTML = "";
+      }
+      document.getElementById("6").onclick = function() {
+        document.getElementById("toConsole").innerHTML = "$('head').append('&lt;script src=\"https://lequanglam.github.io/downloads/dice/luckygames/0x06-RUSH-F.js\"&gt;&lt;/script>;')";
+        document.getElementById("setBasebet").innerHTML = "0.1 -> 1";
+        document.getElementById("note").innerHTML = "<i>U want sum Rush F?</i>";
         document.getElementById("note2").innerHTML = "";
       }
     </script>

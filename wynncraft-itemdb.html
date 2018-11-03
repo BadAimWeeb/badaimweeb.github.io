@@ -1,0 +1,111 @@
+<html>
+	<head>
+		<title></title>
+		<style>
+			b {
+				color: white;
+				font-weight: normal;
+			}
+		</style>
+	</head>
+	<body style="background-color: black; color: limegreen; font-weight: bold;"><tt>
+		<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+		<script id="LibAddZero">
+			function AddZero(num) {
+				return (num >= 0 && num < 10) ? "0" + num : num + "";
+			};
+		</script>
+		<script id="LibDateTime">
+			function MonthsString(num) {
+				switch(num) {
+					case 0:
+						return "January";
+					case 1: 
+						return "February";
+					case 2:
+						return "March";
+					case 3:
+						return "April";
+					case 4:
+						return "May";
+					case 5:
+						return "June";
+					case 6:
+						return "July";
+					case 7:
+						return "August";
+					case 8:
+						return "September";
+					case 9:
+						return "October";
+					case 10:
+						return "November";
+					case 11:
+						return "December";
+					default:
+						return "Unknown";
+				};
+			};
+			function DatesString(num) {
+				switch(num) {
+					case 1:
+					case 21:
+					case 31:
+						return num + "st";
+					case 2:
+					case 22:
+						return num + "nd";
+					case 3:
+					case 23:
+						return num + "rd";
+					default:
+						return num + "th";
+				};
+			};
+			
+			function GetDateTimeNow() {
+				return MonthsString(new Date().getMonth()) + " " + DatesString(new Date().getDate()) + " " + new Date().getFullYear() + " " + AddZero(new Date().getHours()) + ":" + AddZero(new Date().getMinutes()) + ":" +  AddZero(new Date().getSeconds());
+			};
+			</script>
+			<script>
+			function dec2hex(dec) {
+				return ('0' + dec.toString(16)).substr(-2)
+			}
+
+			function generateId(len) {
+				var arr = new Uint8Array((len || 40) / 2)
+				window.crypto.getRandomValues(arr)
+				return Array.from(arr, dec2hex).join('')
+			}
+			
+			function numberFormat(_number, _sep) {
+				_number = typeof _number != "undefined" && _number > 0 ? _number : "";
+				_number = _number.replace(new RegExp("^(\\d{" + (_number.length%3? _number.length%3:0) + "})(\\d{3})", "g"), "$1 $2").replace(/(\d{3})+?/gi, "$1 ").trim();
+				if(typeof _sep != "undefined" && _sep != " ") {
+					_number = _number.replace(/\s/g, _sep);
+				}
+				return _number;
+			}
+		</script>
+		<script>
+			$("tt").append("STR = Strength&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DEX = Dexterity&nbsp;&nbsp;INT = Intelligence&nbsp;&nbsp;AGI = Agility&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DEF = Defense<br>HR = Health Regen&nbsp;&nbsp;MR = Mana Regen&nbsp;&nbsp;SD = Spell Damage&nbsp;&nbsp;&nbsp;DB = Damage Bonus&nbsp;&nbsp;LS = Life Steal&nbsp;&nbsp;MS = Mana Steal<table><tr><th>No.</th><th>Name</th><th>Tier</th><th>Type</th><th>Lore</th><th>Restriction</th><th>STR/DEX/INT/AGI/DEF</th><th>HR/MR</th><th>SD/DB/LS/MS</tr></table>");
+$.get("https://api.wynncraft.com/public_api.php?action=itemDB&category=all", function(data) {
+					try {
+						data = JSON.parse(data);
+					} catch(ex) {}
+					for (i = 0; i < data.items.length; i++) {
+						$("table").append("<tr><td>" + (i+1) + "</td><td>" + data.items[i].name + "</td><td>" + data.items[i].tier + "</td><td>" + (data.items[i].type == undefined ? "" : data.items[i].type)  + "</td><td>" + (data.items[i].addedLore == null ? "" : data.items[i].addedLore) + "</td><td>" + (data.items[i].restrictions == undefined ? "" : data.items[i].restrictions) + "</td><td>" + (data.items[i].strength == undefined ? "?" : data.items[i].strength) + "/" + (data.items[i].dexterity == undefined ? "?" : data.items[i].dexterity) + "/" + (data.items[i].intelligence == undefined ? "?" : data.items[i].intelligence) + "/" + (data.items[i].agility == undefined ? "?" : data.items[i].agility) + "/" + (data.items[i].defense == undefined ? "?" : data.items[i].defense) + "</td><td>" + (data.items[i].healthRegen == undefined ? "?" : data.items[i].healthRegen) + "/" + (data.items[i].manaRegen == undefined ? "?" : data.items[i].manaRegen) + "</td><td>" + (data.items[i].spellDamage == undefined ? "?" : data.items[i].spellDamage) + "/" + (data.items[i].damageBonus == undefined ? "?" : data.items[i].damageBonus) + "/" + (data.items[i].lifeSteal == undefined ? "?" : data.items[i].lifeSteal) + "/" + (data.items[i].manaSteal == undefined ? "?" : data.items[i].manaSteal) + "</td></tr>");
+                    }
+				});
+		</script>
+	</tt><div style='text-align: right;position: fixed;z-index:9999999;bottom: 0; width: 100%;cursor: pointer;line-height: 0;display:block !important;'><a title="Hosted on free web hosting 000webhost.com. Host your own website for FREE." target="_blank" href="https://www.000webhost.com/?utm_source=000webhostapp&amp;utm_campaign=000_logo&amp;utm_medium=website_lql&amp;utm_content=footer_img"><img src="https://cdn.rawgit.com/000webhost/logo/e9bd13f7/footer-powered-by-000webhost-white2.png"  alt="www.000webhost.com"></a></div></body>
+	<script>
+		$(document).ready(function(){
+            $('body').find('img[src$="https://cdn.rawgit.com/000webhost/logo/e9bd13f7/footer-powered-by-000webhost-white2.png"]').parent().closest('a').closest('div').remove();
+        });
+	</script>
+	<noscript>
+		<br><br>
+		<span style="color:red; font-weight: bold;">Hey! Enable JavaScript now!</span>
+	</noscript>
+</html>

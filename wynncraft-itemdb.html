@@ -89,7 +89,7 @@
 		</script>
 		<script>
 			$("tt").append("STR = Strength&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DEX = Dexterity&nbsp;&nbsp;INT = Intelligence&nbsp;&nbsp;AGI = Agility&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DEF = Defense<br>HR = Health Regen&nbsp;&nbsp;MR = Mana Regen&nbsp;&nbsp;SD = Spell Damage&nbsp;&nbsp;&nbsp;DB = Damage Bonus&nbsp;&nbsp;LS = Life Steal&nbsp;&nbsp;MS = Mana Steal<table><tr><th>No.</th><th>Name</th><th>Tier</th><th>Type</th><th>Lore</th><th>Restriction</th><th>STR/DEX/INT/AGI/DEF</th><th>HR/MR</th><th>SD/DB/LS/MS</tr></table>");
-$.get("https://api.wynncraft.com/public_api.php?action=itemDB&category=all", function(data) {
+$.get("https://api.wynncraft.com/public_api.php?action=itemDB&category=" + (location.hash.replace("#", "") == "" ? "all" : location.hash.replace("#", "")), function(data) {
 					try {
 						data = JSON.parse(data);
 					} catch(ex) {}

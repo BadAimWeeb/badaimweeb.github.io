@@ -2,11 +2,37 @@
 <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 <script src="./core.js"></script>
 <script src="./x64-core.js"></script>
+<script src="./enc-base64.js"></script>
+<!-- <script src="./enc-base51.js"></script> -->
+<script src="./md5.js"></script>
+<script src="./ripemd160.js"></script>
+<script src="./sha1.js"></script>
+<script src="./sha256.js"></script>
+<script src="./sha224.js"></script>
 <script src="./sha512.js"></script>
+<script src="./sha384.js"></script>
 <script src="./hmac.js"></script>
 <form>
 	Enter password 1: <input type="password" name="bylat1"><br>
 	Enter password 2: <input type="password" name="bylat2"><br>
+	Level of Bylatful: <select>
+		<option value="1">Level 1 - MD5 (32 Character)</option>
+		<option value="2">Level 2 - RIPEMD160 (40 Character)</option>
+		<option value="3">Level 3 - SHA-1 (40 Character)</option>
+		<option value="4">Level 4 - SHA-224 (56 Character)</option>
+		<option value="5">Level 5 - SHA-256 (64 Character)</option>
+		<option value="6">Level 6 - SHA-384 (96 Character)</option>
+		<option value="7">Level 7 - SHA-512 (128 Character)</option>
+	</select><br>
+	Types of Password: <select>
+		<option value="1">Hexdacimal (Truly Bylatful)</option>
+		<option value="2">Base64 (Shorter, but still bylatful)</option>
+		<!-- <option value="3">Base51 (Contains only letters, both uppercase and lowercase)</option> -->
+		<!-- <option value="4">Base36 (Contains lowercase letters and numbers)</option> -->
+		<!-- <option value="5">Base27 (Contains only letters)</option> -->
+		<!-- <option value="6">Decimal (Contains only numbers)</option> -->
+		<!-- <option value="7">Binary (Contains only 0 and 1 ( ͡° ͜ʖ ͡°))</option> -->
+	</select><br>
 	<input type="checkbox" name="getmorebylat">Get more bylat than normal?<br>
 	<input type="submit" value="Bylat the password!"><br><br>
 	Result: <tt><span id="bylatfulpass" style="overflow-wrap: break-word;"></span></tt>
@@ -15,10 +41,66 @@
 	$("form").submit(function(e){
         e.preventDefault();
 		//console.log(e);
-		if (e.target[2].checked) {
-			$("#bylatfulpass").html(CryptoJS.enc.Hex.stringify(CryptoJS.HmacSHA512(e.target[0].value, e.target[1].value)) + CryptoJS.enc.Hex.stringify(CryptoJS.HmacSHA512(e.target[1].value, e.target[0].value)));
-		} else {
-			$("#bylatfulpass").html(CryptoJS.enc.Hex.stringify(CryptoJS.HmacSHA512(e.target[0].value, e.target[1].value)));
+		var hasher;
+		switch (parseInt(e.target[2].value)) {
+			case 1:
+				hasher = CryptoJS.HmacMD5;
+				break;
+			case 2:
+				hasher = CryptoJS.HmacRIPEMD160;
+				break;
+			case 3:
+				hasher = CryptoJS.HmacSHA1;
+				break;
+			case 4:
+				hasher = CryptoJS.HmacSHA224;
+				break;
+			case 5:
+				hasher = CryptoJS.HmacSHA256;
+				break;
+			case 6:
+				hasher = CryptoJS.HmacSHA384;
+				break;
+			case 7:
+				hasher = CryptoJS.HmacSHA512;
+				break;
+			case 8:
+				hasher = CryptoJS.aes;
+				break;
 		}
+		var encoder;
+		switch (parseInt(e.target[3].value)) {
+			case 1:
+				encoder = CryptoJS.enc.Hex.stringify;
+				break;
+			case 2:
+				encoder = CryptoJS.enc.Base64.stringify;
+				break;
+			case 3:
+				encoder = CryptoJS.enc.Base51.stringify;
+				break;
+			case 4:
+				encoder = CryptoJS.enc.Base36.stringify;
+				break;
+			case 5:
+				encoder = CryptoJS.enc.Base27.stringify;
+				break;
+			case 6:
+				encoder = CryptoJS.enc.Decimal.stringify;
+				break;
+			case 7:
+				encoder = CryptoJS.enc.Binary.stringify;
+				break;
+		}
+		if (e.target[4].checked) {
+			$("#bylatfulpass").html(encoder(hasher(e.target[0].value, e.target[1].value)) + encoder(hasher(e.target[1].value, e.target[0].value)));
+		} else {
+			$("#bylatfulpass").html(encoder(hasher(e.target[0].value, e.target[1].value)));
+		}
+		//if (e.target[2].checked) {
+		//	$("#bylatfulpass").html(CryptoJS.enc.Hex.stringify(CryptoJS.HmacSHA512(e.target[0].value, e.target[1].value)) + CryptoJS.enc.Hex.stringify(CryptoJS.HmacSHA512(e.target[1].value, e.target[0].value)));
+		//} else {
+		//	$("#bylatfulpass").html(CryptoJS.enc.Hex.stringify(CryptoJS.HmacSHA512(e.target[0].value, e.target[1].value)));
+		//}
     });
 </script>

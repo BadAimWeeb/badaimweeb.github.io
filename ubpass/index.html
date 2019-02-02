@@ -1,4 +1,4 @@
-<title>The Unbreakable Bylat Password</title>
+<title>The Unbreakable Blyat Password</title>
 <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 <script src="./core.js"></script>
 <script src="./x64-core.js"></script>
@@ -13,9 +13,9 @@
 <script src="./sha384.js"></script>
 <script src="./hmac.js"></script>
 <form>
-	Enter password 1: <input type="password" name="bylat1"><br>
-	Enter password 2: <input type="password" name="bylat2"><br>
-	Level of Bylatful: <select>
+	Enter password 1: <input type="password" name="blyat1"><br>
+	Enter password 2: <input type="password" name="blyat2"><br>
+	Level of Blyatful: <select>
 		<option value="1">Level 1 - MD5 (32 Character)</option>
 		<option value="2">Level 2 - RIPEMD160 (40 Character)</option>
 		<option value="3">Level 3 - SHA-1 (40 Character)</option>
@@ -25,17 +25,17 @@
 		<option value="7">Level 7 - SHA-512 (128 Character)</option>
 	</select><br>
 	Types of Password: <select>
-		<option value="1">Hexdacimal (Truly Bylatful)</option>
-		<option value="2">Base64 (Shorter, but still bylatful)</option>
+		<option value="1">Hexdacimal (Truly Blyatful)</option>
+		<option value="2">Base64 (Shorter, but still blyatful)</option>
 		<!-- <option value="3">Base51 (Contains only letters, both uppercase and lowercase)</option> -->
 		<!-- <option value="4">Base36 (Contains lowercase letters and numbers)</option> -->
 		<!-- <option value="5">Base27 (Contains only letters)</option> -->
 		<!-- <option value="6">Decimal (Contains only numbers)</option> -->
 		<!-- <option value="7">Binary (Contains only 0 and 1 ( ͡° ͜ʖ ͡°))</option> -->
 	</select><br>
-	<input type="checkbox" name="getmorebylat">Get more bylat than normal?<br>
-	<input type="submit" value="Bylat the password!"><br><br>
-	Result: <tt><span id="bylatfulpass" style="overflow-wrap: break-word;"></span></tt>
+	<input type="checkbox" name="getmoreblyat">Get more blyat than normal?<br>
+	<input type="submit" value="Blyat the password!"><br><br>
+	Result: <tt><span id="blyatfulpass" style="overflow-wrap: break-word;"></span></tt>
 </form>
 <script>
 	$("form").submit(function(e){
@@ -93,14 +93,14 @@
 				break;
 		}
 		if (e.target[4].checked) {
-			$("#bylatfulpass").html(encoder(hasher(e.target[0].value, e.target[1].value)) + encoder(hasher(e.target[1].value, e.target[0].value)));
+			$("#blyatfulpass").html(encoder(hasher(e.target[0].value, e.target[1].value)) + encoder(hasher(e.target[1].value, e.target[0].value)));
 		} else {
-			$("#bylatfulpass").html(encoder(hasher(e.target[0].value, e.target[1].value)));
+			$("#blyatfulpass").html(encoder(hasher(e.target[0].value, e.target[1].value)));
 		}
 		//if (e.target[2].checked) {
-		//	$("#bylatfulpass").html(CryptoJS.enc.Hex.stringify(CryptoJS.HmacSHA512(e.target[0].value, e.target[1].value)) + CryptoJS.enc.Hex.stringify(CryptoJS.HmacSHA512(e.target[1].value, e.target[0].value)));
+		//	$("#blyatfulpass").html(CryptoJS.enc.Hex.stringify(CryptoJS.HmacSHA512(e.target[0].value, e.target[1].value)) + CryptoJS.enc.Hex.stringify(CryptoJS.HmacSHA512(e.target[1].value, e.target[0].value)));
 		//} else {
-		//	$("#bylatfulpass").html(CryptoJS.enc.Hex.stringify(CryptoJS.HmacSHA512(e.target[0].value, e.target[1].value)));
+		//	$("#blyatfulpass").html(CryptoJS.enc.Hex.stringify(CryptoJS.HmacSHA512(e.target[0].value, e.target[1].value)));
 		//}
     });
 </script>

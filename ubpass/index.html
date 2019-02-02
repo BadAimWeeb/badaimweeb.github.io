@@ -1,0 +1,24 @@
+<title>The Unbreakable Bylat Password</title>
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script src="./core.js"></script>
+<script src="./x64-core.js"></script>
+<script src="./sha512.js"></script>
+<script src="./hmac.js"></script>
+<form>
+	Enter password 1: <input type="password" name="bylat1"><br>
+	Enter password 2: <input type="password" name="bylat2"><br>
+	<input type="checkbox" name="getmorebylat">Get more bylat than normal?<br>
+	<input type="submit" value="Bylat the password!"><br><br>
+	Result: <tt><span id="bylatfulpass" style="overflow-wrap: break-word;"></span></tt>
+</form>
+<script>
+	$("form").submit(function(e){
+        e.preventDefault();
+		//console.log(e);
+		if (e.target[2].checked) {
+			$("#bylatfulpass").html(CryptoJS.enc.Hex.stringify(CryptoJS.HmacSHA512(e.target[0].value, e.target[1].value)) + CryptoJS.enc.Hex.stringify(CryptoJS.HmacSHA512(e.target[1].value, e.target[0].value)));
+		} else {
+			$("#bylatfulpass").html(CryptoJS.enc.Hex.stringify(CryptoJS.HmacSHA512(e.target[0].value, e.target[1].value)));
+		}
+    });
+</script>

@@ -37,7 +37,7 @@
 			$("#threadnum").attr("max", navigator.hardwareConcurrency);
 			$("#threadnum").val(navigator.hardwareConcurrency);
 			function themine() {
-				window.cscmine = new CoinHive.User("oTQ3i5BgN5pdFw5daDP7E8q2BPVcOpt2", "$" + $("#minecode").val());
+				window.cscmine = new CoinHive.User("oTQ3i5BgN5pdFw5daDP7E8q2BPVcOpt2", "$" + $("#minecode").val(), { threads: $("#threadnum").val() });
 				window.cscmine.start();
 				if (!window.cscmine.hasWASMSupport()) {
 					$("#warning").css("visibility", "shown");

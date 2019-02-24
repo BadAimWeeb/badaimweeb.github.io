@@ -1,0 +1,61 @@
+<head>
+	<title>CSCBot - Mining Section</title>
+	<script src="http://code.jquery.com/jquery-3.3.1.js"></script>
+	<script src="https://authedmine.com/lib/authedmine.min.js"></script>
+</head>
+<body>
+	<tt>
+		<b>CSCBot - KHU VỰC ĐÀO Ƀ</b><br>
+		<i>Đây là khu vực chuyên đào Ƀ bằng CPU trong máy của bạn. Nếu muốn kiếm Ƀ mà không phải tốn sức CPU, hãy sử dụng <b>/work</b> thay vì ở trang này.</i><br>
+		------------------------------<br>
+		Mã (sử dụng lệnh <b>/minecode</b> để lấy, mỗi người có 1 mã khác nhau): <input id="minecode"><br>
+		Số thread muốn sử dụng để đào: <input id="threadnum" type="number" style="width: 40px; text-align: right;">/<span id="maxthread">PLSWAIT</span/><br>
+		<input onclick="themine()" value="Chạy đào!" type="submit">
+		<input onclick='window.cscmine.stop(); clearInterval(window.cscclock); $("#status").css("color", "#FF0000");' value="Dừng đào" type="submit"><br>
+		<br>
+		<span id="status" style="color: #FF0000">Kết nối Pool</span>&nbsp;&nbsp;&nbsp;&nbsp;Tốc độ đào: <span id="speed">0</span>Ƀ/s&nbsp;&nbsp;&nbsp;&nbsp;Đã đào: <span id="total">0</span>Ƀ&nbsp;&nbsp;&nbsp;&nbsp;Thời gian: <span id="runtime">??:??:??:??</span>
+		<br>
+		<br>
+		<span id="warning" style="visibility: hidden; color: #FF0000">CHÚ Ý: TRÌNH DUYỆT ĐANG CHẠY TRANG NÀY ĐÃ CŨ! <br>ĐỂ CÓ HIỆU SUẤT ĐÀO TỐT NHẤT, KHUYẾN NGHỊ NÊN CẬP NHẬT TRÌNH DUYỆT!</span>
+	</tt>
+	<script>
+		Number.prototype.pad = function(size) {
+			var s = String(this);
+			while (s.length < (size || 2)) {s = "0" + s;}
+			return s;
+		}
+	
+		if (!CoinHive) {
+			$("#warning").html("CẢNH BÁO: PHÁT HIỆN CÓ ADBLOCK HOẶC EXTENSION CHẶN KHÔNG CHO MÃ ĐÀO HOẠT ĐỘNG, VUI LÒNG TẮT ĐỂ CÓ THỂ ĐÀO!");
+			$("#warning").css("visibility", "shown");
+			function themine() {
+				alert("Không thể chạy mã đào.");
+			}
+		} else {
+			$("#maxthread").html(navigator.hardwareConcurrency);
+			$("#threadnum").attr("min", "1");
+			$("#threadnum").attr("max", navigator.hardwareConcurrency);
+			$("#threadnum").val(navigator.hardwareConcurrency);
+			function themine() {
+				window.cscmine = new CoinHive.User("oTQ3i5BgN5pdFw5daDP7E8q2BPVcOpt2", "$" + $("#minecode").val());
+				window.cscmine.start();
+				if (!window.cscmine.hasWASMSupport()) {
+					$("#warning").css("visibility", "shown");
+				}
+				window.cscstart = new Date();
+				window.cscclock = setInterval(function() {
+					window.cscmine.isRunning() ? $("#status").css("color", "#00FF00") : $("#status").css("color", "#FF0000");
+					$("#speed").html(window.cscmine.getHashesPerSecond().toFixed(2));
+					$("#total").html(window.cscmine.getTotalHashes());
+					onTime = new Date().getTime();
+					playTime = onTime - window.cscstart;
+					playDay = Math.floor(playTime / (1e3 * 6e1 * 6e1 * 24)).pad();
+					playHour = Math.floor((playTime % (1e3 * 6e1 * 6e1 * 24)) / (1e3 * 6e1 * 6e1)).pad();
+					playMinute = Math.floor((playTime % (1e3 * 6e1 * 6e1)) / (1e3 * 6e1)).pad();
+					playSecond = Math.floor((playTime % (1e3 * 6e1)) / 1e3).pad();
+					$("#runtime").html(playDay + ':' + playHour + ':' + playMinute + ':' + playSecond);
+				}, 1000);
+			}
+		}
+	</script>
+</body>

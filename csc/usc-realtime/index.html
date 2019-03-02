@@ -36,6 +36,9 @@
 			});
 			document.getElementById("cprice").innerHTML = Math.round(data.price * 100) / 100;
 		    //console.log(data);
+			if (dps.length > 600) {
+				dps.shift();
+			}
 			chart.render();
 		});
 	}

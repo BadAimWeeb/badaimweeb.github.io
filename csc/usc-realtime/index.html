@@ -1,0 +1,51 @@
+<head>
+  <title>CSCBot - UnstableCoin's Real Time Price Chart</title>
+  <script src="cvs.js"></script>
+  <script src="https://js.pusher.com/4.4/pusher.min.js"></script>
+  <script>
+    window.onload = function() {
+		var dps = []; 
+		var bdps = []; 
+		var chart = new CanvasJS.Chart("chartContainer", {
+			title :{
+				text: "CSCBot - Real Time USC Price"
+			},
+			axisY: {
+				includeZero: false
+			},      
+			data: [{
+				type: "stepLine",
+				dataPoints: dps
+			}]
+		});
+		chart.render();
+		var pusher = new Pusher('e805c5057e9cf30f6d2f', {
+		  cluster: 'ap1',
+		  forceTLS: true
+		});
+
+		var channel = pusher.subscribe('csc-usc');
+		channel.bind('updatePrice', function(data) {
+			dps.push({
+				x: new Date(),
+				y: data.price
+			});
+			bdps.push({
+				x: new Date(),
+				y: data.price
+			});
+			document.getElementById("cprice").innerHTML = Math.round(data.price * 100) / 100;
+		    //console.log(data);
+			chart.render();
+		});
+	}
+  </script>
+</head>
+<body>
+	<tt>
+		<b>CSCBot - KHU VỰC XEM BIỂU ĐỒ THỜI GIAN THỰC VỀ GIÁ UNSTABLECOIN</b><br>
+		------------------------------<br>
+		<i>Giá hiện tại: <span id="cprice">????</span>Ƀ</i>
+		<div id="chartContainer" style="height: 400px; width: 100%;"></div>
+	</tt>
+</body>

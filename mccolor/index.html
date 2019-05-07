@@ -1,13 +1,16 @@
 <tt>
 <script src="./plugin.js"></script>
 <b>Minecraft Rainbow Text Generator</b><br>
-<i>Writen by lequanglam (UIRI) - Version 0.1</i><br>
+<i>Writen by lequanglam (UIRI) - Version 0.1.1</i><br>
 <br>
 Enter text: <input id="textdata"><br>
 Type: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<select id="typetext">
 	<option value="a">Type A - From 0 to F</option>
 	<option value="b">Type B - From F to 0</option>
-	<option value="c">Type C - Completely random</option>
+	<option value="c">Type C - Completely random (0 - F)</option>
+	<option value="a">Type D - From A to F</option>
+	<option value="b">Type E - From F to A</option>
+	<option value="c">Type F - Completely random (A - F)</option>
 </select><br>
 <script>
 	function clicked() {
@@ -34,6 +37,33 @@ Type: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<select id="typetext">
 				break;
 			case "c":
 				var rt = c(text);
+				if (rt[2] > 256) {
+					document.getElementById("warn").style.visibility = "visible"
+				} else {
+					document.getElementById("warn").style.visibility = "hidden"
+				}
+				document.getElementById("out").value = rt[0];
+				break;
+			case "d":
+				var rt = d(text);
+				if (rt[2] > 256) {
+					document.getElementById("warn").style.visibility = "visible"
+				} else {
+					document.getElementById("warn").style.visibility = "hidden"
+				}
+				document.getElementById("out").value = rt[0];
+				break;
+			case "e":
+				var rt = e(text);
+				if (rt[2] > 256) {
+					document.getElementById("warn").style.visibility = "visible"
+				} else {
+					document.getElementById("warn").style.visibility = "hidden"
+				}
+				document.getElementById("out").value = rt[0];
+				break;
+			case "f":
+				var rt = f(text);
 				if (rt[2] > 256) {
 					document.getElementById("warn").style.visibility = "visible"
 				} else {

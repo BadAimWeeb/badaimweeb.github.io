@@ -1,0 +1,50 @@
+<tt>
+<script src="./plugin.js"></script>
+<b>Minecraft Rainbow Text Generator</b><br>
+<i>Writen by lequanglam (UIRI) - Version 0.1</i><br>
+<br>
+Enter text: <input id="textdata"><br>
+Type: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<select id="typetext">
+	<option value="a">Type A - From 0 to F</option>
+	<option value="b">Type B - From F to 0</option>
+	<option value="c">Type C - Completely random</option>
+</select><br>
+<script>
+	function clicked() {
+		var text = document.getElementById("textdata").value;
+		var type = document.getElementById("typetext").value;
+		switch (type) {
+			case "a":
+				var rt = a(text);
+				if (rt[2] > 256) {
+					document.getElementById("warn").style.visibility = "visible"
+				} else {
+					document.getElementById("warn").style.visibility = "hidden"
+				}
+				document.getElementById("out").value = rt[0];
+				break;
+			case "b":
+				var rt = b(text);
+				if (rt[2] > 256) {
+					document.getElementById("warn").style.visibility = "visible"
+				} else {
+					document.getElementById("warn").style.visibility = "hidden"
+				}
+				document.getElementById("out").value = rt[0];
+				break;
+			case "c":
+				var rt = c(text);
+				if (rt[2] > 256) {
+					document.getElementById("warn").style.visibility = "visible"
+				} else {
+					document.getElementById("warn").style.visibility = "hidden"
+				}
+				document.getElementById("out").value = rt[0];
+				break;
+		}
+	}
+</script>
+<input type="button" onclick="clicked()" value="Generate!"><br>
+Output text: <input readonly id="out"><br>
+<span style="color: red; visibility: hidden;" id="warn">WARNING: OUTPUT TEXT LARGER THAN 256 CHARACTER. TEXT MIGHT BE CUT IN SOMEWHERE WHEN PASTED INTO MINECRAFT.</span>
+</tt>

@@ -1,80 +1,33 @@
-<tt>
-<script src="./plugin.js"></script>
-<b>Minecraft Rainbow Text Generator</b><br>
-<i>Writen by lequanglam (UIRI) - Version 0.1.1</i><br>
-<br>
-Enter text: <input id="textdata"><br>
-Type: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<select id="typetext">
-	<option value="a">Type A - From 0 to F</option>
-	<option value="b">Type B - From F to 0</option>
-	<option value="c">Type C - Completely random (0 - F)</option>
-	<option value="d">Type D - From A to F</option>
-	<option value="e">Type E - From F to A</option>
-	<option value="f">Type F - Completely random (A - F)</option>
-</select><br>
-<script>
-	function clicked() {
-		var text = document.getElementById("textdata").value;
-		var type = document.getElementById("typetext").value;
-		switch (type) {
-			case "a":
-				var rt = a(text);
-				if (rt[2] > 256) {
-					document.getElementById("warn").style.visibility = "visible"
-				} else {
-					document.getElementById("warn").style.visibility = "hidden"
-				}
-				document.getElementById("out").value = rt[0];
-				break;
-			case "b":
-				var rt = b(text);
-				if (rt[2] > 256) {
-					document.getElementById("warn").style.visibility = "visible"
-				} else {
-					document.getElementById("warn").style.visibility = "hidden"
-				}
-				document.getElementById("out").value = rt[0];
-				break;
-			case "c":
-				var rt = c(text);
-				if (rt[2] > 256) {
-					document.getElementById("warn").style.visibility = "visible"
-				} else {
-					document.getElementById("warn").style.visibility = "hidden"
-				}
-				document.getElementById("out").value = rt[0];
-				break;
-			case "d":
-				var rt = d(text);
-				if (rt[2] > 256) {
-					document.getElementById("warn").style.visibility = "visible"
-				} else {
-					document.getElementById("warn").style.visibility = "hidden"
-				}
-				document.getElementById("out").value = rt[0];
-				break;
-			case "e":
-				var rt = e(text);
-				if (rt[2] > 256) {
-					document.getElementById("warn").style.visibility = "visible"
-				} else {
-					document.getElementById("warn").style.visibility = "hidden"
-				}
-				document.getElementById("out").value = rt[0];
-				break;
-			case "f":
-				var rt = f(text);
-				if (rt[2] > 256) {
-					document.getElementById("warn").style.visibility = "visible"
-				} else {
-					document.getElementById("warn").style.visibility = "hidden"
-				}
-				document.getElementById("out").value = rt[0];
-				break;
-		}
-	}
-</script>
-<input type="button" onclick="clicked()" value="Generate!"><br>
-Output text: <input readonly id="out"><br>
-<span style="color: red; visibility: hidden;" id="warn">WARNING: OUTPUT TEXT LARGER THAN 256 CHARACTER. TEXT MIGHT BE CUT IN SOMEWHERE WHEN PASTED INTO MINECRAFT.</span>
-</tt>
+<head>
+  <title>Homepage - LQL's gitHUB page</title>
+  <style>
+    a:link, a:visited { 
+      color: #00FF00;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+    a:link:active, a:visited:active { 
+      color: #00FF00;
+    }
+  </style>
+</head>
+<body style="background-color: #000000">
+  <tt style="color: #00FF00">
+    <pre>
+    __    ____    __   _                _ __  __  ____  ______     ____  ___   ____________
+   / /   / __ \  / /  ( )_____   ____ _(_) /_/ / / / / / / __ )   / __ \/   | / ____/ ____/
+  / /   / / / / / /   |// ___/  / __ `/ / __/ /_/ / / / / __  |  / /_/ / /| |/ / __/ __/   
+ / /___/ /_/ / / /___  (__  )  / /_/ / / /_/ __  / /_/ / /_/ /  / ____/ ___ / /_/ / /___   
+/_____/\___\_\/_____/ /____/   \__, /_/\__/_/ /_/\____/_____/  /_/   /_/  |_\____/_____/   
+                              /____/                                                       
+    </pre>
+    <br>
+    Homepage<br>
+    <br>
+    <br>
+    1. <a href="/downloads/">Downloads</a><br>
+    2. <a href="/ubpass/">Get an unbreakable password</a><br>
+    3. <a href="#">N/A</a><br>
+    4. <a href="#">N/A</a><br>
+  </tt>
+</body>

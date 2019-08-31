@@ -14,15 +14,68 @@
 </head>
 <body style="background-color: #000000">
   <tt style="color: #00FF00">
-    <pre id="console"></pre>
+    <pre id="console"></pre><span id="cursor">█</span>
   </tt>
   <script>
     var lockconsole = true;
-    var motd = "lequanglam.github.io\nJavaScript ES6\nPHP 7.2\n\nPLEASE AUTH";
+    var nostdout = false;
+    var charinput = "";
+    var username = "";
+    var usemodified = true;
+    var defaultentertrigger = function(charinput){};
+    var modifiedentertrigger = function(charinput){};
+    var motd = "WARNING: UNDER CONSTRUCTION\n\nlequanglam.github.io\nJavaScript ES6\nPHP 7.2\n\nDefault username is ANOMYNOUS\n\nPLEASE AUTH";
     for (var i = 0; i < motd.length; i++) {
-      setTimeout(function (char) {
+      setTimeout(function (char, lastchar) {
         $("#console").html($("#console").html() + char);
-      }, i * 50, motd[i]);
+        if (lastchar) {
+          $("#console").html($("#console").html() + "\nUSERNAME: ");
+          modifiedentertrigger = function (un) {
+            username = un;
+            if (un == "ANOMYNOUS") {
+              $("#console").html($("#console").html() + "\n\nVERIFYING...\nPUBLIC DATA ACCESS ONLY\nLOGGED IN\n\n\nERROR: INVALID BYTE 346\nCONNECTION TERMINATED");
+              lockconsole = true;
+              usemodified = false;
+            } else {
+              $("#console").html($("#console").html() + "\nPASSWORD: "); 
+              nostdout = true;
+              modifiedentertrigger = function (pass) {
+                $("#console").html($("#console").html() + "\n\nVERIFYING...\n\nERROR: INVALID BYTE 217\nCONNECTION TERMINATED"); 
+                usemodified = false;
+                nostdout = false;
+                lockconsole = true;
+              }
+            }
+          }
+          lockconsole = false;
+        }
+      }, i * 30, motd[i], (i + 1 == motd.length));
     }
+    $(document).on("keydown", function (e) {
+      if (!lockconsole) {
+        if (e.which == 8) {
+          if (!nostdout) {
+            $("#console").html($("#console").html().substr(0, $("#console").html().length - 1));
+          }
+          charinput = charinput.substr(0, charinput.length - 1);
+        }
+      }
+    });
+    $(document).on("keypress", function (e) {
+      if (!lockconsole) {
+        if (e.which == 13 || e.which == 10) {
+          if (usemodified) {
+            modifiedentertrigger(charinput);
+          } else {
+            defaultentertrigger(charinput);
+          }
+        } else {
+          if (!nostdout) {
+            $("#console").html($("#console").html().substr(0, $("#console").html().length - 1));
+          }
+          charinput = charinput.substr(0, charinput.length - 1);
+        }
+      }
+    });
   </script>
 </body>

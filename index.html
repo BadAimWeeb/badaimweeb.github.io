@@ -22,7 +22,7 @@
     for (var i = 0; i < motd.length; i++) {
       setTimeout(function (char) {
         $("#console").html($("#console").html() + char);
-      }, i * 50, char);
+      }, i * 50, motd[i]);
     }
   </script>
 </body>

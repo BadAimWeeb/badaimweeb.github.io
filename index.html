@@ -1,5 +1,5 @@
 <head>
-  <title>Homepage - LQL's gitHUB page</title>
+  <title>lequanglam.github.io - MAIN CONSOLE</title>
   <style>
     a:link, a:visited { 
       color: #00FF00;
@@ -10,24 +10,19 @@
       color: #00FF00;
     }
   </style>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 </head>
 <body style="background-color: #000000">
   <tt style="color: #00FF00">
-    <pre>
-    __    ____    __   _                _ __  __  ____  ______     ____  ___   ____________
-   / /   / __ \  / /  ( )_____   ____ _(_) /_/ / / / / / / __ )   / __ \/   | / ____/ ____/
-  / /   / / / / / /   |// ___/  / __ `/ / __/ /_/ / / / / __  |  / /_/ / /| |/ / __/ __/   
- / /___/ /_/ / / /___  (__  )  / /_/ / / /_/ __  / /_/ / /_/ /  / ____/ ___ / /_/ / /___   
-/_____/\___\_\/_____/ /____/   \__, /_/\__/_/ /_/\____/_____/  /_/   /_/  |_\____/_____/   
-                              /____/                                                       
-    </pre>
-    <br>
-    Homepage<br>
-    <br>
-    <br>
-    1. <a href="/downloads/">Downloads</a><br>
-    2. <a href="/ubpass/">Get an unbreakable password</a><br>
-    3. <a href="#">N/A</a><br>
-    4. <a href="#">N/A</a><br>
+    <pre id="console"></pre>
   </tt>
+  <script>
+    var lockconsole = true;
+    var motd = "lequanglam.github.io\r\nJavaScript ES6\r\nPHP 7.2\r\n\r\nPLEASE AUTH";
+    for (var i = 0; i < motd.length; i++) {
+      setTimeout(function (char) {
+        $("#console").html($("#console").html() + char);
+      }, i * 50, char);
+    }
+  </script>
 </body>

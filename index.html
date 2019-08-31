@@ -71,7 +71,7 @@
           }
         } else {
           if (!nostdout) {
-            $("#console").html($("#console").html().substr(0, $("#console").html().length - 1));
+            $("#console").html($("#console").html() + String.fromCharCode(e.which));
           }
           charinput = charinput.substr(0, charinput.length - 1);
         }

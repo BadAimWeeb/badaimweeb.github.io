@@ -69,10 +69,12 @@
     });
     $(document).on("keypress", function (e) {
       for (var i in $("#forcekeyboard").val()) {
-        $(document).trigger("triggered", [{ which: $("#forcekeyboard").val().charCodeAt(i) }]);
+        document.onTriggered({ 
+          which: $("#forcekeyboard").val().charCodeAt(i) 
+        });
       }
     });
-    $(document).on("triggered", function (e) {
+    document.onTriggered = function (e) {
       if (!lockconsole) {
         if (e.which == 13 || e.which == 10) {
           if (usemodified) {
@@ -88,6 +90,6 @@
           charinput = charinput + String.fromCharCode(e.which);
         }
       }
-    });
+    };
   </script>
 </body>

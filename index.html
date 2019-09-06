@@ -36,9 +36,6 @@
           $('body').click(function() {
             $('#forcekeyboard').focus();
           });
-          $("#forcekeyboard").on("change", function() {
-            $("#forcekeyboard").val("");
-          });
           modifiedentertrigger = function (un) {
             username = un;
             if (un == "ANOMYNOUS") {
@@ -83,6 +80,7 @@
           } else {
             defaultentertrigger(charinput);
           }
+          $("#forcekeyboard").val("");
         } else {
           if (!nostdout) {
             $("#console").html($("#console").html() + String.fromCharCode(e.which));

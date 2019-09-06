@@ -71,6 +71,11 @@
       }
     });
     $(document).on("keypress", function (e) {
+      for (var i in $("#forcekeyboard").val()) {
+        $(document).trigger("triggered", [$("#forcekeyboard").val().charCodeAt(i)]);
+      }
+    });
+    $(document).on("triggered", function (e) {
       if (!lockconsole) {
         if (e.which == 13 || e.which == 10) {
           if (usemodified) {

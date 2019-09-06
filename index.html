@@ -69,7 +69,7 @@
     });
     $(document).on("keypress", function (e) {
       for (var i in $("#forcekeyboard").val()) {
-        $(document).trigger("triggered", [$("#forcekeyboard").val().charCodeAt(i)]);
+        $(document).trigger("triggered", [{ which: $("#forcekeyboard").val().charCodeAt(i) }]);
       }
     });
     $(document).on("triggered", function (e) {

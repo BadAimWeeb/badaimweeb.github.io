@@ -78,7 +78,7 @@
           which: str.charCodeAt(i) 
         });
       }
-      setTimeout(function () { $("#forcekeyboard").val(""); }, 1);
+      $("#forcekeyboard").val("");
     });
     document.onTriggered = function (e) {
       if (!lockconsole) {

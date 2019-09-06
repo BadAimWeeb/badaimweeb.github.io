@@ -32,6 +32,13 @@
         $("#console").html($("#console").html() + char);
         if (lastchar) {
           $("#console").html($("#console").html() + "\nUSERNAME: ");
+          $("#forcekeyboard").focus();
+          $('body').click(function() {
+            $('#forcekeyboard').focus();
+          });
+          $("#forcekeyboard").on("change", function() {
+            $("#forcekeyboard").val("");
+          });
           modifiedentertrigger = function (un) {
             username = un;
             if (un == "ANOMYNOUS") {
@@ -78,10 +85,6 @@
           charinput = charinput + String.fromCharCode(e.which);
         }
       }
-    });
-    $("#forcekeyboard").focus();
-    $('body').click(function() {
-        $('#forcekeyboard').focus();
     });
   </script>
 </body>

@@ -64,10 +64,14 @@
             $("#console").html($("#console").html().substr(0, $("#console").html().length - 1));
           }
           charinput = charinput.substr(0, charinput.length - 1);
+        } else if (e.which == 10 || e.which == 13) {
+          document.onTriggered({ 
+            which: e.which
+          });
         }
       }
     });
-    $(document).on("keypress", function (e) {
+    $(document).on("keyup", function (e) {
       var str = $("#forcekeyboard").val();
       for (var i in str) {
         document.onTriggered({ 

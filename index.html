@@ -73,6 +73,7 @@
           which: $("#forcekeyboard").val().charCodeAt(i) 
         });
       }
+      $("#forcekeyboard").val("");
     });
     document.onTriggered = function (e) {
       if (!lockconsole) {

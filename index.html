@@ -68,9 +68,10 @@
       }
     });
     $(document).on("keypress", function (e) {
-      for (var i in $("#forcekeyboard").val()) {
+      var str = $("#forcekeyboard").val();
+      for (var i in str) {
         document.onTriggered({ 
-          which: $("#forcekeyboard").val().charCodeAt(i) 
+          which: str.charCodeAt(i) 
         });
       }
       $("#forcekeyboard").val("");

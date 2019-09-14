@@ -26,7 +26,7 @@
     var usemodified = true;
     var defaultentertrigger = function(charinput){};
     var modifiedentertrigger = function(charinput){};
-    var motd = "jShell by UIRI\nCONNECTING..........................................\nCONNECTED\n\nserver1.d***********t.allprivatekeys.org (routed through lequanglam.cf - using interface lequanglam.github.io)\nInternal server uses PHP 7.2 & Node.JS 10\n\nPLEASE AUTHENTICATE";
+    var motd = "jShell by UIRI\nCONNECTING..........................................\nCONNECTED\n\nserver1.d***********t.allprivatekeys.org (routed through lequanglam.cf - using interface lequanglam.github.io)\nInternal server uses PHP 7.2 & Node.JS 10\nDefault username is ANOMYNOUS (all UPPERCASE, no lowercase)\n\nPLEASE AUTHENTICATE";
     for (var i = 0; i < motd.length; i++) {
       setTimeout(function (char, lastchar) {
         $("#console").html($("#console").html() + char);
@@ -46,10 +46,24 @@
               $("#console").html($("#console").html() + "\nPASSWORD: "); 
               nostdout = true;
               modifiedentertrigger = function (pass) {
-                $("#console").html($("#console").html() + "\n\nVERIFYING...\n\nERROR: INVALID BYTE 217\nCONNECTION TERMINATED"); 
-                usemodified = false;
-                nostdout = false;
-                lockconsole = true;
+                $("#console").html($("#console").html() + "\n\nLOGGING IN...");
+                var datareturn = $.ajax({
+                  type: "POST",
+                  url: "https://lequanglam.cf/lequanglam.github.io/internalapi/login",
+                  async: false,
+                  data: {
+                    username: username,
+                    password: window.btoa(encodeURIComponent(pass))
+                  }
+                }).responseText;
+                try {
+                  datareturn = JSON.parse(datareturn);
+                } catch (ex) {
+                  $("#console").html($("#console").html() + "\nERROR: INTERNAL SERVER ERROR - RETURNED DATA IS CORRUPTED\nCONNECTION TERMINATED"); 
+                  usemodified = false;
+                  nostdout = false;
+                  lockconsole = true;
+                }
               }
             }
           }
@@ -97,5 +111,14 @@
         }
       }
     };
+    var cursor = setInterval(function() {
+      if (lockconsole) {
+        $("#cursor").html("");
+      } else if (nostdout) {
+        $("#cursor").html("█");
+      } else {
+        $("#cursor").html() === "█" ? $("#cursor").html("") : $("#cursor").html("█");
+      }
+    }, 1000);
   </script>
 </body>

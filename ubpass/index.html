@@ -36,8 +36,7 @@
 </form>
 <script>
 	$("form").submit(function(e){
-        e.preventDefault();
-		//console.log(e);
+        	e.preventDefault();
 		var hasher;
 		switch (parseInt(e.target[2].value)) {
 			case 1:
@@ -80,9 +79,9 @@
 			$("#blyatfulpass").val(encoder(hasher(e.target[0].value, e.target[1].value)));
 		}
     });
-    document.getElementById("copy-text").onclick = function() {
+    $("#blyatfulpass").on("click", function() {
         this.select();
         document.execCommand('copy');
         alert('Copied hash to clipboard!');
-    }
+    });
 </script>

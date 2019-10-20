@@ -1,4 +1,4 @@
-<title>The Unbreakable Blyat Password</title>
+<title>Unbreakable Password Generator - lequanglam.github.io</title>
 <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 <script src="./core.js"></script>
 <script src="./x64-core.js"></script>
@@ -12,30 +12,27 @@
 <script src="./sha512.js"></script>
 <script src="./sha384.js"></script>
 <script src="./hmac.js"></script>
+<b>lequanglam.github.io - Unbreakable Password Generator</b><br>
+<br>
 <form>
-	Enter password 1: <input type="password" name="blyat1"><br>
-	Enter password 2: <input type="password" name="blyat2"><br>
-	Level of Blyatful: <select>
-		<option value="1">Level 1 - MD5 (32 Character)</option>
-		<option value="2">Level 2 - RIPEMD160 (40 Character)</option>
-		<option value="3">Level 3 - SHA-1 (40 Character)</option>
-		<option value="4">Level 4 - SHA-224 (56 Character)</option>
-		<option value="5">Level 5 - SHA-256 (64 Character)</option>
-		<option value="6">Level 6 - SHA-384 (96 Character)</option>
-		<option value="7">Level 7 - SHA-512 (128 Character)</option>
+	Password 1: <input type="password" name="blyat1"><br>
+	Password 2: <input type="password" name="blyat2"><br>
+	Hash algorithim: <select>
+		<option value="1">1 - MD5 (16 Bytes)</option>
+		<option value="2">2 - RIPEMD160 (20 Bytes)</option>
+		<option value="3">3 - SHA-1 (20 Bytes)</option>
+		<option value="4">4 - SHA-224 (28 Bytes)</option>
+		<option value="5">5 - SHA-256 (32 Bytes)</option>
+		<option value="6">6 - SHA-384 (48 Bytes)</option>
+		<option value="7">7 - SHA-512 (64 Bytes)</option>
 	</select><br>
-	Types of Password: <select>
-		<option value="1">Hexdacimal (Truly Blyatful)</option>
-		<option value="2">Base64 (Shorter, but still blyatful)</option>
-		<!-- <option value="3">Base51 (Contains only letters, both uppercase and lowercase)</option> -->
-		<!-- <option value="4">Base36 (Contains lowercase letters and numbers)</option> -->
-		<!-- <option value="5">Base27 (Contains only letters)</option> -->
-		<!-- <option value="6">Decimal (Contains only numbers)</option> -->
-		<!-- <option value="7">Binary (Contains only 0 and 1 ( ͡° ͜ʖ ͡°))</option> -->
+	Output types: <select>
+		<option value="1">Hexdacimal (0-9 + a-f)</option>
+		<option value="2">Base64 (0-9 + a-z + A-Z)</option>
 	</select><br>
-	<input type="checkbox" name="getmoreblyat">Get more blyat than normal?<br>
-	<input type="submit" value="Blyat the password!"><br><br>
-	Result: <tt><span id="blyatfulpass" style="overflow-wrap: break-word;"></span></tt>
+	<input type="checkbox" name="getmoreblyat">Get x2 hashes?<br>
+	<input type="submit" value="Generate!"><br><br>
+	Result: <tt><input id="blyatfulpass" style="overflow-wrap: break-word;" readonly></span></tt>
 </form>
 <script>
 	$("form").submit(function(e){
@@ -76,31 +73,11 @@
 			case 2:
 				encoder = CryptoJS.enc.Base64.stringify;
 				break;
-			case 3:
-				encoder = CryptoJS.enc.Base51.stringify;
-				break;
-			case 4:
-				encoder = CryptoJS.enc.Base36.stringify;
-				break;
-			case 5:
-				encoder = CryptoJS.enc.Base27.stringify;
-				break;
-			case 6:
-				encoder = CryptoJS.enc.Decimal.stringify;
-				break;
-			case 7:
-				encoder = CryptoJS.enc.Binary.stringify;
-				break;
 		}
 		if (e.target[4].checked) {
 			$("#blyatfulpass").html(encoder(hasher(e.target[0].value, e.target[1].value)) + encoder(hasher(e.target[1].value, e.target[0].value)));
 		} else {
 			$("#blyatfulpass").html(encoder(hasher(e.target[0].value, e.target[1].value)));
 		}
-		//if (e.target[2].checked) {
-		//	$("#blyatfulpass").html(CryptoJS.enc.Hex.stringify(CryptoJS.HmacSHA512(e.target[0].value, e.target[1].value)) + CryptoJS.enc.Hex.stringify(CryptoJS.HmacSHA512(e.target[1].value, e.target[0].value)));
-		//} else {
-		//	$("#blyatfulpass").html(CryptoJS.enc.Hex.stringify(CryptoJS.HmacSHA512(e.target[0].value, e.target[1].value)));
-		//}
     });
 </script>

@@ -3,7 +3,6 @@
 <script src="./core.js"></script>
 <script src="./x64-core.js"></script>
 <script src="./enc-base64.js"></script>
-<script src="./enc-binary.js"></script>
 <script src="./md5.js"></script>
 <script src="./ripemd160.js"></script>
 <script src="./sha1.js"></script>
@@ -74,7 +73,63 @@
 				encoder = CryptoJS.enc.Base64.stringify;
 				break;
 			case 3:
-				encoder = CryptoJS.enc.Binary.stringify;
+				encoder = function (t) {
+					var hexstr = CryptoJS.enc.Hex.stringify(t);
+					var binarystr = "";
+					for (var cn in hexstr) {
+						switch (hexstr[cn].toLocaleLowerCase()) {
+							case "0":
+								binarystr += "0000";
+								break;
+							case "1":
+								binarystr += "0001";
+								break;
+							case "2":
+								binarystr += "0010";
+								break;
+							case "3":
+								binarystr += "0011";
+								break;
+							case "4":
+								binarystr += "0100";
+								break;
+							case "5":
+								binarystr += "0101";
+								break;
+							case "6":
+								binarystr += "0110";
+								break;
+							case "7":
+								binarystr += "0111";
+								break;
+							case "8":
+								binarystr += "1000";
+								break;
+							case "9":
+								binarystr += "1001";
+								break;
+							case "a":
+								binarystr += "1010";
+								break;
+							case "b":
+								binarystr += "1011";
+								break;
+							case "c":
+								binarystr += "1100";
+								break;
+							case "d":
+								binarystr += "1101";
+								break;
+							case "e":
+								binarystr += "1110";
+								break;
+							case "f":
+								binarystr += "1111";
+								break;
+						}
+					}
+					return binarystr;
+				};
 				break;
 		}
 		if (e.target[4].checked) {

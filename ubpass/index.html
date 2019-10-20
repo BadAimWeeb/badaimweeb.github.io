@@ -75,9 +75,9 @@
 				break;
 		}
 		if (e.target[4].checked) {
-			$("#blyatfulpass").html(encoder(hasher(e.target[0].value, e.target[1].value)) + encoder(hasher(e.target[1].value, e.target[0].value)));
+			$("#blyatfulpass").val(encoder(hasher(e.target[0].value, e.target[1].value)) + encoder(hasher(e.target[1].value, e.target[0].value)));
 		} else {
-			$("#blyatfulpass").html(encoder(hasher(e.target[0].value, e.target[1].value)));
+			$("#blyatfulpass").val(encoder(hasher(e.target[0].value, e.target[1].value)));
 		}
     });
 </script>

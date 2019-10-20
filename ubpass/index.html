@@ -140,7 +140,9 @@
     });
     $("#blyatfulpass").on("click", function() {
         this.select();
-        document.execCommand('copy');
-        alert('Copied hash to clipboard!');
+        var isCopied = document.execCommand('copy');
+	if (isCopied) {
+        	alert('Copied hash to clipboard!');
+	}
     });
 </script>

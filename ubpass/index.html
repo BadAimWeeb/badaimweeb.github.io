@@ -3,7 +3,7 @@
 <script src="./core.js"></script>
 <script src="./x64-core.js"></script>
 <script src="./enc-base64.js"></script>
-<!-- <script src="./enc-base51.js"></script> -->
+<script src="./enc-binary.js"></script>
 <script src="./md5.js"></script>
 <script src="./ripemd160.js"></script>
 <script src="./sha1.js"></script>
@@ -29,6 +29,7 @@
 	Output types: <select>
 		<option value="1">Hexdacimal (0-9 + a-f)</option>
 		<option value="2">Base64 (0-9 + a-z + A-Z)</option>
+		<option value="3">Binary (0-1)</option>
 	</select><br>
 	<input type="checkbox" name="getmoreblyat">Get x2 hashes?<br>
 	<input type="submit" value="Generate!"><br><br>
@@ -71,6 +72,9 @@
 				break;
 			case 2:
 				encoder = CryptoJS.enc.Base64.stringify;
+				break;
+			case 3:
+				encoder = CryptoJS.enc.Binary.stringify;
 				break;
 		}
 		if (e.target[4].checked) {

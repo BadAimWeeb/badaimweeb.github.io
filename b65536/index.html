@@ -1,0 +1,26 @@
+<html>
+	<head>
+		<title>Base65536 Encode/Decode - UIRI's Utilities</title>
+		<script src='https://unpkg.com/base65536' crossorigin></script>
+		<script src="wtf-8.js"></script>
+	</head>
+	<body>
+		<script>
+			function encode() {
+				document.getElementById("o").value = base65536.encode(Uint8Array.from(wtf8.encode(document.getElementById("i").value).split("").map(x => x.charCodeAt(0))));
+			}
+			function decode() {
+				document.getElementById("o").value = wtf8.decode(Array.from(base65536.decode(document.getElementById("i").value)).map(x => String.fromCharCode(x)).join(""));
+			}
+		</script>
+		<tt>
+			<b>UIRI's Utilities - Base65536 encoding/decoding tool.</b><br>
+			<br>
+			Input: <br>
+			<textarea id="i" cols=80 rows=6></textarea><br>
+			Output: <br>
+			<textarea id="o" readonly cols=80 rows=6></textarea><br>
+			<button onclick="encode()">Encode</button><button onclick="decode()">Decode</button>
+		</tt>
+	</body>
+</html>

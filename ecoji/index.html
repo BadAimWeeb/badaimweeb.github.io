@@ -1,0 +1,27 @@
+<html>
+	<head>
+		<title>Ecoji Encode/Decode - UIRI's Utilities</title>
+		<script src="browser.js"></script>
+		<script src="wtf-8.js"></script>
+	</head>
+	<body>
+		<script>
+			var ecoji = require("ecoji-js");
+			function encode() {
+				document.getElementById("o").value = ecoji.encode(wtf8.encode(document.getElementById("i").value));
+			}
+			function decode() {
+				document.getElementById("o").value = wtf8.decode(ecoji.decode(document.getElementById("i").value));
+			}
+		</script>
+		<tt>
+			<b>UIRI's Utilities - Ecoji encoding/decoding tool.</b><br>
+			<br>
+			Input: <br>
+			<textarea id="i" cols=80 rows=6></textarea><br>
+			Output: <br>
+			<textarea id="o" readonly cols=80 rows=6></textarea><br>
+			<button onclick="encode()">Encode</button><button onclick="decode()">Decode</button>
+		</tt>
+	</body>
+</html>

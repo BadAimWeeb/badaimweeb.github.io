@@ -1,12 +1,21 @@
 <html>
 	<head>
 		<title>Base65536 Encode/Decode - UIRI's Utilities</title>
+		<script src='https://unpkg.com/base65536' type="module" crossorigin></script>
+		<script src="./wtf-8.js" type="module"></script>
 		<script>
-			var exports = {};
-			var base65536 = exports;
+			import { decode as b65536decode, encode as b65536encode } from 'https://unpkg.com/base65536';
+			var base65536 = {
+				decode: b65536decode,
+				encode: b65536encode
+			};
+			
+			import { decode as wtf8decode, encode as wtf8encode } from './wtf-8.js';
+			var wtf8 = {
+				decode: wtf8decode,
+				encode: wtf8encode
+			};
 		</script>
-		<script src='https://unpkg.com/base65536' crossorigin></script>
-		<script src="wtf-8.js"></script>
 	</head>
 	<body>
 		<script>

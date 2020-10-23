@@ -11,6 +11,7 @@
 <script src="./sha512.js"></script>
 <script src="./sha384.js"></script>
 <script src="./hmac.js"></script>
+<script src="../ecoji/browser.js"></script>
 <b>lequanglam.github.io - Unbreakable Password Generator</b><br>
 <br>
 <form>
@@ -29,6 +30,7 @@
 		<option value="1">Hexdacimal (0-9 + a-f)</option>
 		<option value="2">Base64 (0-9 + a-z + A-Z)</option>
 		<option value="3">Binary (0-1)</option>
+		<option value="4">Ecoji (🤔😊😂...)</option>
 	</select><br>
 	<input type="checkbox" name="getmoreblyat">Get x2 hashes?<br>
 	<input type="submit" value="Generate!"><br><br>
@@ -59,9 +61,6 @@
 				break;
 			case 7:
 				hasher = CryptoJS.HmacSHA512;
-				break;
-			case 8:
-				hasher = CryptoJS.aes;
 				break;
 		}
 		var encoder;
@@ -131,6 +130,10 @@
 					return binarystr;
 				};
 				break;
+			case 4:
+				encoder = function (t) {
+					return ecoji.encode(CryptoJS.enc.Latin1.stringify(t));
+				}
 		}
 		if (e.target[4].checked) {
 			$("#blyatfulpass").val(encoder(hasher(e.target[0].value, e.target[1].value)) + encoder(hasher(e.target[1].value, e.target[0].value)));

@@ -142,10 +142,12 @@
 				encoder = function (t) {
 					return ecoji.encode(CryptoJS.enc.Latin1.stringify(t));
 				}
+				break;
 			case 5:
 				encoder = function (t) {
 					return base65536.encode(Uint8Array.from(CryptoJS.enc.Hex.stringify(t).match(/.{2}/g).map(x => parseInt(x, 16))));
 				}
+				break;
 		}
 		if (e.target[4].checked) {
 			$("#blyatfulpass").val(encoder(hasher(e.target[0].value, e.target[1].value)) + encoder(hasher(e.target[1].value, e.target[0].value)));

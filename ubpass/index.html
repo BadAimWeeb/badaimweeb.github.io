@@ -81,7 +81,7 @@
 				break;
 			case 3:
 				encoder = function (t) {
-					return CryptoJS.enc.Hex.stringify(t).split("").map(x => parseInt(x, 16).toString(2).padStart(4, "0"));
+					return CryptoJS.enc.Hex.stringify(t).split("").map(x => parseInt(x, 16).toString(2).padStart(4, "0")).join("");
 				};
 				break;
 			case 4:

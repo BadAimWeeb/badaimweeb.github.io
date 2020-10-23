@@ -12,8 +12,13 @@
 <script src="./sha384.js"></script>
 <script src="./hmac.js"></script>
 <script src="../ecoji/browser.js"></script>
+<script>
+	var exports = {}, base65536 = exports;
+</script>
+<script src='https://unpkg.com/base65536' crossorigin></script>
+
 <b>BadAimWeeb.github.io - Unbreakable Password Generator</b><br>
-<i>Copyright (C) 2019-2020 BadAimWeeb</i>
+<i>Copyright (C) 2019-2020 BadAimWeeb</i><br>
 <br>
 <form>
 	Password 1: <input type="password" name="blyat1"><br>
@@ -32,6 +37,7 @@
 		<option value="2">Base64 (0-9 + a-z + A-Z)</option>
 		<option value="3">Binary (0-1)</option>
 		<option value="4">Ecoji (🤔😊😂...)</option>
+		<option value="5">Base65536 (???)</option>
 	</select><br>
 	<input type="checkbox" name="getmoreblyat">Get x2 hashes?<br>
 	<input type="submit" value="Generate!"><br><br>
@@ -135,6 +141,10 @@
 			case 4:
 				encoder = function (t) {
 					return ecoji.encode(CryptoJS.enc.Latin1.stringify(t));
+				}
+			case 5:
+				encoder = function (t) {
+					return base65536.encode(Uint8Array.from(CryptoJS.enc.Hex.stringify(t).match(/.{2}/g).map(x => parseInt(x, 16))));
 				}
 		}
 		if (e.target[4].checked) {

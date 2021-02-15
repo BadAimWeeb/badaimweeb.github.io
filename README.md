@@ -3,9 +3,9 @@
   <ul align="left">
     <h4>Resources that I made:</h4>
     <li>An customizable Facebook/Discord chatbot, <a href="https://github.com/c3cbot/c3c-0x">c3cbot</a></li>
-    <li>Successor of c3cbot, <a href="https://github.com/Project-Dec1mus/nikola">@Project-Dec1mus/nikola</a>. WIP.</li>
+    <li>Successor of c3cbot, <a href="https://github.com/1CB/BTRex">BTRex</a>. WIP.</li>
     <li>
-      <a href="https://metric-cfc.herokuapp.com">CMv2/CFCMetric</a> - Chatbot tracking service. Track chatbots service running c3cbot, nikola or other chatbots in CFC. WIP. 
+      <a href="https://metric-cfc.herokuapp.com">CMv2/CFCMetric</a> - Chatbot tracking service. Track chatbots service running c3cbot, BTRex or other chatbots in CFC. WIP. 
       <a href="https://github.com/Project-Dec1mus/central-metric">Source code</a>
     </li>
   </ul>

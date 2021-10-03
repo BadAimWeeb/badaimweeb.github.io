@@ -10,10 +10,10 @@
 	<body>
 		<script>
 			function xencode() {
-				document.getElementById("o").value = base65536.encode(Uint8Array.from(wtf8.encode(document.getElementById("i").value).split("").map(x => x.charCodeAt(0))));
+				document.getElementById("o").value = b65536.encode(Uint8Array.from(wtf8.encode(document.getElementById("i").value).split("").map(x => x.charCodeAt(0))));
 			}
 			function xdecode() {
-				document.getElementById("o").value = wtf8.decode(Array.from(base65536.decode(document.getElementById("i").value)).map(x => String.fromCharCode(x)).join(""));
+				document.getElementById("o").value = wtf8.decode(Array.from(b65536.decode(document.getElementById("i").value)).map(x => String.fromCharCode(x)).join(""));
 			}
 		</script>
 		<tt>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invisible Encryption v0.1 (BETA)</title>
+    <script src="wtf-8.js"></script>
+</head>
+
+<body>
+    <b>BadAimWeeb's Utilities - Invisible Encryption v0.1 (BETA)</b><br>
+    <i>Copyright (C) 2022 BadAimWeeb</i><br>
+    <br>
+    Input: <br>
+    <textarea name="input" rows="5" cols="50"></textarea><br>
+    <input type="submit" value="Encrypt" onclick="encrypt()"> <input type="submit" value="Decrypt" onclick="decrypt()"> <input type="submit" value="Copy" onclick="copy()"><br>
+    Output (length <span id="len">0</span>): <br>
+    <textarea name="output" rows="5" cols="50"></textarea>
+    <br>
+    <script>
+        let invisibleCharacters = [
+            "\u200B",
+            "\u200C",
+            "\u200D",
+            "\u200E",
+            "\u2062",
+            "\u2063",
+            "\u2064",
+            "\u2066",
+            "\u2067",
+            "\u2068",
+            "\u2069",
+            "\u206A",
+            "\u206B",
+            "\u206C",
+            "\u206D",
+            "\u206E"
+        ];
+
+        function encrypt() {
+            let input = document.getElementsByName("input")[0].value;
+            let output = wtf8.encode(input).split("").map(function (char) {
+                let code = char.charCodeAt(0);
+
+                let o = "";
+                o += invisibleCharacters[(code >> 4) % 16];
+                o += invisibleCharacters[code % 16];
+
+                return o;
+            }).join("");
+            document.getElementsByName("output")[0].value = output;
+            document.getElementById("len").innerHTML = output.length;
+        }
+
+        function decrypt() {
+            let input = document.getElementsByName("input")[0].value;
+            let output = wtf8.decode(
+                input.split("").map(function (char) {
+                    return invisibleCharacters.indexOf(char);
+                })
+                    .filter(char => char !== -1)
+                    .map(x => x.toString(16))
+                    .join("").match(/.{1,2}/g)
+                    .map(x => parseInt(x, 16))
+                    .map(x => String.fromCharCode(x))
+                    .join("")
+            );
+            document.getElementsByName("output")[0].value = output;
+            document.getElementById("len").innerHTML = output.length;
+        }
+
+        function copy() {
+            document.getElementsByName("output")[0].select();
+            document.execCommand("copy");
+        }
+    </script>
+</body>
+
+</html>
